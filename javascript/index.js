@@ -11,8 +11,8 @@ class Juego {
         this.containerTiempo = document.getElementById('tiempo')
 
         this.trieds = new Array(LENGTH_CONDITION)
-        this.targets = [] 
-        this.targetsWell = [] 
+        this.targets = []
+        this.targetsWell = []
         this.dataImg = []
         this.s = this.h = this.m = this.time = 0
         this.pausa = 0
@@ -27,11 +27,10 @@ class Juego {
             }
         }
     }
-    generarIdRandom(){
-        this.matriz = new Array(NUM_PERSONAJES).fill(0).map(() => +(Math.random()*(RANGE_DATA_API-1)+1).toFixed(0))
+    generarIdRandom() {
+        this.matriz = new Array(NUM_PERSONAJES).fill(0).map(() => +(Math.random() * (RANGE_DATA_API - 1) + 1).toFixed(0))
         this.matriz = this.matriz.concat(this.matriz)
         this.matriz = this.matriz.sort(() => Math.random() - 0.5);
-        console.log(this.matriz)
     }
     fetchData = async () => {
         try {
@@ -48,9 +47,9 @@ class Juego {
                 error: true,
                 data: this.dataImg
             }
-            
+
         } catch (error) {
-            this.dataAPI = { complete : true, error : error }
+            this.dataAPI = { complete: true, error: error }
             console.log('error api -> ', this.dataAPI.error)
         }
     }
@@ -152,7 +151,7 @@ class Juego {
             this.s++;
             if (this.s > 59) { this.m++; this.s = 0; }
             if (this.m > 59) { this.m = 0; }
-            if(this.m < 1){
+            if (this.m < 1) {
                 this.m = '00'
             }
             this.containerTiempo.innerText = `${this.m}:${this.s}`
@@ -165,6 +164,8 @@ class Juego {
         location.reload()
     }
 }
-
-const ejecutar = new Juego()
-ejecutar.crearDiv()
+function init() {
+    const ejecutar = new Juego()
+    ejecutar.crearDiv()
+}
+init()
