@@ -86,7 +86,9 @@ class Juego {
         this.evaluarJuego()
     }
     evaluarJuego() {
-        if (this.firstMov) setInterval('ejecutar.tiempo()', 1000)
+        if (this.firstMov){
+            setInterval('ejecutar.tiempo()', 1000)
+        }
         this.firstMov = false
         if (this.bool) {
             this.trieds[0] = this.matriz[this.indice]
@@ -147,6 +149,7 @@ class Juego {
         this.intentosDiv.innerText = `Actions: ${this.intentos}`
     }
     tiempo() {
+        console.log('entra a tiempo()')
         if (!this.pausa) {
             this.s++;
             if (this.s > 59) { this.m++; this.s = 0; }
@@ -164,8 +167,6 @@ class Juego {
         location.reload()
     }
 }
-function init() {
-    const ejecutar = new Juego()
-    ejecutar.crearDiv()
-}
-init()
+
+const ejecutar = new Juego()
+ejecutar.crearDiv()
