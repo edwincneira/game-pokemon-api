@@ -147,7 +147,7 @@ body {
 }
 
 .vueltaFront {
-	background-image: url(./media/img/background.png);
+	background-image: url(../media/img/background.png);
 	background-size: cover;
 	border-radius: 15px;
 }
@@ -206,7 +206,7 @@ body {
 }
 @media screen and (max-width: 768px) {
     body{
-	    background-image: url(/media/img/fondo-game.jpg);
+	    background-image: url(../media/img/fondo-game.jpg);
 	    background-size: 356%;        
 	    background-position-y: 1%; 
         background-position-x: 40%;
